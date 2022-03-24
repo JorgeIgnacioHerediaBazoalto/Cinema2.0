@@ -12,10 +12,11 @@ public class Sala {
     public static final String ANSI_RESET = "\u001B[0m";
 
 //"SALA-A"
-    public Sala(String codigosala, int numeroFilas){
+    public Sala(String codigosala, int numeroFilas, int butacasporfila){
         this.codigosala = codigosala;
         this.numeroFilas = numeroFilas;
         this.filas = new ArrayList<>();
+        generarFilas(numeroFilas,butacasporfila);
     }
 
     public Sala(String codigosala){
@@ -31,7 +32,6 @@ public class Sala {
             fila.generarButacas(butacasporfila);
             filas.add(fila);
         }
-        setCapacidad();
     }
 
     public String mostrarAsientos() {
