@@ -2,7 +2,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CandyBar implements Servicios {
+public class CandyBar {
     Cine cine;
     Empleado empleado;
     ArrayList<Producto> productos;
@@ -20,7 +20,7 @@ public class CandyBar implements Servicios {
     public String mostrarProductos() {
         String returnProductos = "";
         for (Producto producto : productos
-             ) {
+        ) {
             returnProductos += "PRODUCTO N°: " + productos.indexOf(producto) + "\n" +
                     "\t" + producto.infoObjeto(-1) + "\n------------------------------------------------------------\n";
         }
@@ -61,13 +61,13 @@ public class CandyBar implements Servicios {
                 " ".repeat(n2) + "Fecha" + " ".repeat(n2) + ":" + " ".repeat(n3) + cine.getFechaActual() + "\n" +
                 " ".repeat(n2) + "Hora" + " ".repeat(9) + ":" + " ".repeat(n3) + /*cine.getHoraActual()*/"HORA-ACTUAL" + "\n" +
                 " ".repeat(n2) + "Cliente" + " ".repeat(6) + ":" + " ".repeat(n3) + cliente.getName() + "\n" +
-        //System.out.println(" ".repeat(n2) + "Pago"+" ".repeat(9)+":"+" ".repeat(n3) + cliente.getFormaDePago+"\n");
+                //System.out.println(" ".repeat(n2) + "Pago"+" ".repeat(9)+":"+" ".repeat(n3) + cliente.getFormaDePago+"\n");
                 " ".repeat(2) + "Detalle" + " ".repeat(15) + "Cant." + " ".repeat(6) + "Subtotal" + "\n" + " " + "-".repeat(43) + "\n" +
                 listarProductos(cliente) + "\n" +
                 " ".repeat(33) + "Total Bs: " + cliente.cart.totalProducts + "\n" + "-".repeat(45) + "\n" + "\n" +
                 " ".repeat(3) + "ESTA FACTURA CONTRIBUYE AL DESARROLLO" + "\n" +
                 " ".repeat(3) + "DEL PAIS, EL USO ILICITO DE ESTA SERA" + "\n" +
-                " ".repeat(3) + "SANCIONADO DE ACUERDO A LA LEY Nº 453"  + "\n" +
+                " ".repeat(3) + "SANCIONADO DE ACUERDO A LA LEY Nº 453" + "\n" +
                 "=".repeat(n1) + "\n";
         cliente.cart.setCartNew();
 
@@ -84,25 +84,5 @@ public class CandyBar implements Servicios {
         }
         cliente.cart.setTotalProducts();
         return productos;
-    }
-
-        @Override
-    public void comprar() {
-
-    }
-
-    @Override
-    public void facturar() {
-
-    }
-
-    @Override
-    public void registrarCliente() {
-
-    }
-
-    @Override
-    public void buscarCliente() {
-
     }
 }
