@@ -49,6 +49,16 @@ public class Cart {
         return souvenirs.size();
     }
 
+    public int getTotalProducts() {
+        setTotalProducts();
+        return totalProducts;
+    }
+
+    public int getTotalSouvenirs() {
+        setTotalSouvenirs();
+        return totalSouvenirs;
+    }
+
     public void setTotalProducts() {
         for (int i = 0; i < getSizeProducts(); i++) {
             totalProducts += (productos.get(i).priceMoney * cantidadProductos.get(i));

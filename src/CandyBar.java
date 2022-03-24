@@ -1,6 +1,4 @@
-import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class CandyBar {
     Cine cine;
@@ -40,10 +38,10 @@ public class CandyBar {
     //Solucionar implementacion de los metodos por sus parametros
     //@Override
     public String facturar(Cliente cliente) {
-        return formatoFacturaBoleteria(cliente, empleado, cine);
+        return formatoFactura(cliente, empleado, cine);
     }
 
-    public String formatoFacturaBoleteria(Cliente cliente, Empleado empleado, Cine cine) {
+    public String formatoFactura(Cliente cliente, Empleado empleado, Cine cine) {
         int n1 = 45;
         int n2 = 8;
         int n3 = 7;
