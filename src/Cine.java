@@ -8,6 +8,7 @@ public class Cine {
     Boleteria boleteria;
     ArrayList<Sala> salas;
     int numerosalas;
+    int indicesala;
 
     //FECHAS
     LocalDate fechaActual;
@@ -17,22 +18,28 @@ public class Cine {
         this.nombre = nombre;
         this.salas = new ArrayList<>();
         this.boleteria = null;
+        generarsalas(3,10,10);
+        generarsalas(2,8,10);
+        generarsalas(2,5,10);
     }
 
     public Cine(String nombre, Boleteria boleteria) {
         this.nombre = nombre;
         this.salas = new ArrayList<>();
         this.boleteria = boleteria;
+        generarsalas(3,10,10);
+        generarsalas(2,8,10);
+        generarsalas(2,5,10);
     }
 
     public void generarsalas(int numerosalas,int numerofilas, int butacasporfila){
         this.numerosalas=numerosalas;
         for (int i=1;i<=numerosalas;i++){
-            Sala sala = new Sala(String.valueOf((char)(64+i)));
+            Sala sala = new Sala(String.valueOf((char)(65+indicesala)));
             sala.generarFilas(numerofilas,butacasporfila);
             salas.add(sala);
+            indicesala++;
         }
-
     }
 
     public ArrayList<Sala> getSalas() {return salas;}
