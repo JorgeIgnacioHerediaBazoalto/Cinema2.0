@@ -6,13 +6,15 @@ public class Sala {
     int capacidad;
     ArrayList<Fila> filas;
     int butacasporfila;
+    Pelicula pelicula;
 
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_RESET = "\u001B[0m";
 
 //"SALA-A"
-    public Sala(String codigosala, int numeroFilas, int butacasporfila){
+    public Sala(Pelicula pelicula, String codigosala, int numeroFilas, int butacasporfila){
+        this.pelicula = pelicula;
         this.codigosala = codigosala;
         this.numeroFilas = numeroFilas;
         this.filas = new ArrayList<>();
@@ -98,5 +100,9 @@ public class Sala {
             }
         }
         return filaEncontrada;
+    }
+
+    public Pelicula getPelicula() {
+        return pelicula;
     }
 }

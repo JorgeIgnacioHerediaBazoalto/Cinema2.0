@@ -60,4 +60,30 @@ public class TestCandyBar {
         assertEquals(expectedFactura, candyBar.facturar(cliente1));
         assertEquals(15, candyBar.productos.get(0).cantidadDisponible);
     }
+
+    @Test
+    public void testCanjearPalomitas()
+    {
+        Cine c = new Cine("Astor");
+        Empleado empleado = new Empleado("Sam", "England", 132354, LocalDate.of(2003, 8, 8));
+        CandyBar candyBar = new CandyBar(empleado, c);
+        Producto producto1 = new Producto("Palomitas", 15.5, 50, 20);
+        Producto producto2 = new Producto("Coca-Cola", 10.0, 50, 20);
+        Producto producto3 = new Producto("Pepsi", 10.0, 50, 20);
+
+
+        double puntos = candyBar.calcularPuntos(30,0.5);
+        puntos = candyBar.canjearPuntos(puntos, 1);
+
+        assertEquals(250.0, puntos, 0);
+
+        String expected1 = "Una porcion grande de Palomitas";
+
+        assertEquals(expected1, candyBar.CanjearProductos(1, producto1, producto2));
+
+        String expected2 = "Un combo grande de Palomitas y dos Coca-Cola medianos";
+
+        assertEquals(expected2,candyBar.CanjearProductos(2,producto1, producto2));
+
+    }
 }

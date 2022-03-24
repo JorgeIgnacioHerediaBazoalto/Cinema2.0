@@ -77,6 +77,5 @@ public class TiendaSouvenirs {
                     "\tSubtotal: " + cliente.cart.getSouvenirs().get(i).priceMoney * cliente.cart.getCantidadSouvenirs().get(i) + "\n\n";
         }
         cliente.cart.setTotalProducts();
-        return souvenirs;
-    }
+        return souvenirs
 }

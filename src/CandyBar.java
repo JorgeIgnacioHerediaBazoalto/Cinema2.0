@@ -83,4 +83,67 @@ public class CandyBar {
         cliente.cart.setTotalProducts();
         return productos;
     }
+
+    public double calcularPuntos(int cantidadBoletos, double descuento)
+    {
+        double  puntosTotal = 0;
+        double puntosPorBoleto  = 50;
+
+        puntosPorBoleto = puntosPorBoleto * descuento;
+        puntosTotal = cantidadBoletos * puntosPorBoleto;
+
+        return puntosTotal;
+    }
+
+
+    public double canjearPuntos(double puntosTotal, int opcion)
+    {
+
+        switch (opcion)
+        {
+            case 1:
+                if(puntosTotal >= 500 && puntosTotal < 950)
+                {
+                    puntosTotal = puntosTotal - 500;
+                    return puntosTotal;
+                }
+                break;
+            case 2:
+                if(puntosTotal >= 950 && puntosTotal < 1350)
+                {
+                    puntosTotal = puntosTotal - 950;
+                    return puntosTotal;
+                }
+                break;
+            case 3:
+                if(puntosTotal >=1350)
+                {
+                    puntosTotal = puntosTotal - 1350;
+                    return puntosTotal;
+                }
+                break;
+            default:
+                return puntosTotal;
+        }
+        return puntosTotal;
+    }
+
+    public String CanjearProductos(int opcion, Producto producto, Producto producto2)
+    {
+        String premio ="";
+        switch (opcion)
+        {
+            case 1:
+                premio = "Una porcion grande de "+ producto.getName();
+                return premio;
+            case 2:
+                premio = "Un combo grande de "+ producto.getName() + " y "+ "dos " + producto2.getName() + " medianos";
+                return premio;
+            case 3:
+                premio = "Un combo grande de "+ producto.getName() + " y " + producto2.getName();
+                return premio;
+
+        }
+        return premio;
+    }
 }

@@ -3,6 +3,7 @@ import org.junit.Test;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Month;
+import java.util.ArrayList;
 
 import static java.lang.System.*;
 import static org.junit.Assert.assertEquals;
@@ -83,8 +84,13 @@ public class TestCinema {
     @Test
     public void testCanjearBoleto()
     {
-        Empleado empleado = new Empleado("Juan Tasma", "Bolivia", 123456789, LocalDate.of(2003, Month.OCTOBER, 8));
-        Boleteria boleteria = new Boleteria(empleado);
+        Empleado empleado1 = new Empleado("Sam", "Boliviana", 15649, LocalDate.of(2003, 8, 8));
+        Empleado empleado2 = new Empleado("Emma", "Boliviana", 56946, LocalDate.of(2003, 8, 8));
+        Registro registro = new Registro();
+        registro.registrar(empleado1);
+        registro.registrar(empleado2);
+        Cine cine = new Cine("Astor", registro);
+        Boleteria boleteria = new Boleteria(empleado1, cine);
         Pelicula peli1 = new Pelicula("Point of Break", GeneroPelicula.ACCION, 2.5);
 
         double puntosTotal = boleteria.calcularPuntos(30, 0.5);
@@ -133,25 +139,7 @@ public class TestCinema {
         out.println(sala1.mostrarAsientos());
     }
 
-    @Test
-    public void testCineCompleto() {
-        Cine cine = cineComplet();
 
-        Cartelera cartelera = new Cartelera(LocalDate.now(), LocalDate.of(2022, 3, 31));
-        Pelicula pelicula1 = new Pelicula("MVP, Back to the game", GeneroPelicula.DOCUMENTAL, 2.5);
-        Funcion funcion = new Funcion(pelicula1);
-        funcion.addHorario(LocalTime.of(10, 20), cine.salas.get(0), TipoFuncion.FUNCION_3D);
-        funcion.addHorario(LocalTime.of(10, 30), cine.salas.get(1), TipoFuncion.FUNCION_2D);
-        cartelera.addFuncion(funcion);
-
-        cine.boleteria.setCartelera(cartelera);
-
-        Cliente cliente1 = new Cliente("May", "Boliviana", 13432, LocalDate.of(2003, 7, 3), true);
-        TarjetaDeCredito tarjetaDeCreditoCliente1 = new TarjetaDeCredito("Los elefantes", cliente1.getName(), 2500.0);
-        cliente1.setTarjeta(tarjetaDeCreditoCliente1);
-
-        out.println(cine.boleteria.comprarBoleto("MVP, Back to the game", LocalTime.of(10, 30), 3, cliente1));
-    }
 
     public Cine cineComplet() {
         Empleado empleado1 = new Empleado("Sam", "Boliviana", 15649, LocalDate.of(2003, 8, 8));
@@ -204,4 +192,50 @@ public class TestCinema {
         c.generarsalas(2,5,10);
     }
 
+    @Test
+    public void testFactura(){
+        ArrayList<Pelicula> peliculas = new ArrayList<>();
+        Empleado empleado1 = new Empleado("Sam", "Boliviana", 15649, LocalDate.of(2003, 8, 8));
+        Empleado empleado2 = new Empleado("Emma", "Boliviana", 56946, LocalDate.of(2003, 8, 8));
+
+        Registro registro = new Registro();
+        registro.registrar(empleado1);
+        registro.registrar(empleado2);
+
+        Cine cine = new Cine("Astor", registro);
+        Cliente cliente = new Cliente("Luiggy", "Boliviano", 1254221,
+                LocalDate.of(2003, Month.OCTOBER, 8));
+
+        Boleteria boleteria1 = new Boleteria(empleado2, cine);
+        Pelicula pelicula1 = new Pelicula("Doctor Strange 2", GeneroPelicula.ACCION, 2.28);
+        Pelicula pelicula2 = new Pelicula("127 Hours", GeneroPelicula.SUSPENSO, 2.15);
+        peliculas.add(pelicula1);
+        peliculas.add(pelicula2);
+
+        boleteria1.formatoFacturaBoleteria(cine, cliente, 120, peliculas,empleado2);
+    }
+
+    @Test
+    public void testComprarBoletos(){
+        Empleado empleado1 = new Empleado("Sam", "Boliviana", 15649, LocalDate.of(2003, 8, 8));
+        Empleado empleado2 = new Empleado("Emma", "Boliviana", 56946, LocalDate.of(2003, 8, 8));
+
+
+        Registro registro = new Registro();
+        registro.registrar(empleado1);
+        registro.registrar(empleado2);
+
+        Cine cine = new Cine("Astor", registro);
+
+        Boleteria boleteria1 = new Boleteria(empleado1, cine);
+        salas_por_defecto(cine);
+        Pelicula pelicula = new Pelicula("Doctor Strange 2", GeneroPelicula.ACCION, 2.28);
+        Sala sala1 = new Sala(pelicula, "H", 5, 10);
+        cine.addSala(sala1);
+        ArrayList<Butaca> butacasLibres = new ArrayList<>();
+
+        boleteria1.comprarBoleto(cine, pelicula, 3, "3D",
+                LocalDate.of(2022, Month.MAY, 6), LocalTime.of(17, 30));
+
+    }
 }
