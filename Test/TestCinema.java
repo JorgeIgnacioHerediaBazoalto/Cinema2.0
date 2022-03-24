@@ -81,6 +81,23 @@ public class TestCinema {
     }
 
     @Test
+    public void testCanjearBoleto()
+    {
+        Empleado empleado = new Empleado("Juan Tasma", "Bolivia", 123456789, LocalDate.of(2003, Month.OCTOBER, 8));
+        Boleteria boleteria = new Boleteria(empleado);
+        Pelicula peli1 = new Pelicula("Point of Break", GeneroPelicula.ACCION, 2.5);
+
+        double puntosTotal = boleteria.calcularPuntos(30, 0.5);
+
+        double puntosRestantes = boleteria.canjearPuntos(puntosTotal,1);
+
+        assertEquals(250.0,puntosRestantes, 0);
+
+        String expected = "Un boleto para la pelicula Point of Break";
+        assertEquals(expected, boleteria.canjearBoletos(1, peli1));
+    }
+
+    @Test
     public void testCartelera() {
         int year = 2022;
         Cartelera cartelera = new Cartelera(LocalDate.of(year, 3, 17), LocalDate.of(year, 4, 2));

@@ -17,6 +17,7 @@ public class Boleto {
 
     public String generarBoleto(){
         String boleto = "";
+
         int n1 = 39;
         int n2 = 5;
         boleto += "-".repeat(n1) + "\n" +

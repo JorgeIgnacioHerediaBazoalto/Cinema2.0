@@ -33,4 +33,8 @@ public class ObjetoEnCine {
                 "PRECIO(Puntos): " + pricePoints + "\n" +
                 "CANTIDAD DISPONIBLE: " + cantidadDisponible + "\n\n";
     }
+
+    public String getName() {
+        return name;
+    }
 }
