@@ -72,4 +72,31 @@ public class Sala {
     public int getCapacidad() {
         return capacidad;
     }
+
+    public Butaca getButaca(char codigoFila, int numButaca) {
+        return searchFila(""+codigoFila).searchButaca(numButaca);
+    }
+
+    public ArrayList<String> getButacasLibres() {
+        ArrayList<String> butacasLibres = new ArrayList();
+        for (Fila fila : filas
+        ) {
+            for (Butaca butaca : fila.butacas
+            ) {
+                if (butaca.estaDisponible()){butacasLibres.add(butaca.id);}
+            }
+        }
+        return butacasLibres;
+    }
+
+    public Fila searchFila(String codigoFila) {
+        Fila filaEncontrada = null;
+        for (Fila fila:filas
+        ) {
+            if (fila.codigoFila.equals(codigoFila)) {
+                filaEncontrada = fila;
+            }
+        }
+        return filaEncontrada;
+    }
 }

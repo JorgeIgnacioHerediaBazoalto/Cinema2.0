@@ -6,6 +6,9 @@ import java.util.Objects;
 public class Cine {
     String nombre;
     Boleteria boleteria;
+    TiendaSouvenirs tiendaSouvenirs;
+    CandyBar candyBar;
+    Registro registro;
     ArrayList<Sala> salas;
     int numerosalas;
     int indicesala;
@@ -20,13 +23,22 @@ public class Cine {
         this.boleteria = null;
     }
 
-    public Cine(String nombre, Boleteria boleteria) {
+    public Cine(String nombre, Registro registro) {
         this.nombre = nombre;
         this.salas = new ArrayList<>();
+        this.registro = registro;
+    }
+
+    public void setBoleteria(Boleteria boleteria) {
         this.boleteria = boleteria;
-        generarsalas(3,10,10);
-        generarsalas(2,8,10);
-        generarsalas(2,5,10);
+    }
+
+    public void setTiendaSouvenirs(TiendaSouvenirs tiendaSouvenirs) {
+        this.tiendaSouvenirs = tiendaSouvenirs;
+    }
+
+    public void setCandyBar(CandyBar candyBar) {
+        this.candyBar = candyBar;
     }
 
     public void generarsalas(int numerosalas,int numerofilas, int butacasporfila){

@@ -4,14 +4,14 @@ import java.time.LocalDate;
 public class Promocion
 {
 
-    Cliente cliente;
+    static Cliente cliente;
 
     public Promocion(Cliente cliente)
     {
         this.cliente = cliente;
     }
 
-    public double obtenerDescuento(LocalDate fechaActual, int edad, GeneroPelicula genero, String bancoTarjeta)
+    static public double obtenerDescuento(LocalDate fechaActual, int edad, GeneroPelicula genero, String bancoTarjeta)
     {
         double descuento = 0;
         if(edad>=60)

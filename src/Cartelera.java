@@ -42,7 +42,7 @@ public class Cartelera {
         Funcion funcionReturn = null;
         for (Funcion funcion : funcions
              ) {
-            if (funcion.peliculas.nombrePelicula.equals(nameFuncion)) {
+            if (funcion.pelicula.nombrePelicula.equals(nameFuncion)) {
                 funcionReturn = funcion;
             }
             else {

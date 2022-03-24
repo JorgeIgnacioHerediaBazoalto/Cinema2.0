@@ -45,4 +45,16 @@ public class Fila {
         }
         return info.toString();
     }
+
+    public Butaca searchButaca(int numeroButaca) {
+        Butaca butacaEncontrada = null;
+        for (Butaca butaca : butacas
+        ) {
+            if (butaca.numero == numeroButaca) {
+                butacaEncontrada = butaca;
+                break;
+            }
+        }
+        return butacaEncontrada;
+    }
 }

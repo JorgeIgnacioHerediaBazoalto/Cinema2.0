@@ -21,7 +21,6 @@ public class TestCandyBar {
 
         String expectedFactura = "=============================================\n" +
                 "            Factura Cine Astor\n" +
-                "            CANDYBAR\n" +
                 "=============================================\n" +
                 "=============================================\n" +
                 "\n" +
@@ -33,6 +32,7 @@ public class TestCandyBar {
                 "\n" +
                 "        Fecha        :       2022-03-23\n" +
                 "        Hora         :       HORA-ACTUAL\n" +
+                "        Seccion      :       CANDYBAR\n" +
                 "        Cliente      :       Juan Tasma\n" +
                 "  Detalle               Cant.      Subtotal\n" +
                 " -------------------------------------------\n" +

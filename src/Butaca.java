@@ -30,4 +30,8 @@ public class Butaca {
     public void setId(String fila){
         this.id = fila + numero;
     }
+
+    public String getId() {
+        return id;
+    }
 }

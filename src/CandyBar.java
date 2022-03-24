@@ -38,10 +38,10 @@ public class CandyBar {
     //Solucionar implementacion de los metodos por sus parametros
     //@Override
     public String facturar(Cliente cliente) {
-        return formatoFactura(cliente, empleado, cine);
+        return formatoFactura(cliente, empleado);
     }
 
-    public String formatoFactura(Cliente cliente, Empleado empleado, Cine cine) {
+    public String formatoFactura(Cliente cliente, Empleado empleado) {
         int n1 = 45;
         int n2 = 8;
         int n3 = 7;
@@ -50,7 +50,6 @@ public class CandyBar {
         String factura = "" +
                 "=".repeat(n1) + "\n" +
                 " ".repeat(12) + "Factura Cine " + cine.getNombre() + "\n" +
-                " ".repeat(12) + "CANDYBAR" + "\n" +
                 "=".repeat(n1) + "\n" +
                 //System.out.println(" ".repeat(19) + cine.getUbicacion());
                 "=".repeat(n1) + "\n" + "\n" +
@@ -58,6 +57,7 @@ public class CandyBar {
                 " ".repeat(n2) + "Actividades de cinematografia" + "\n" + " ".repeat(12) + "y otras actividades" + "\n" + "\n" +
                 " ".repeat(n2) + "Fecha" + " ".repeat(n2) + ":" + " ".repeat(n3) + cine.getFechaActual() + "\n" +
                 " ".repeat(n2) + "Hora" + " ".repeat(9) + ":" + " ".repeat(n3) + /*cine.getHoraActual()*/"HORA-ACTUAL" + "\n" +
+                " ".repeat(n2) + "Seccion" + " ".repeat(6) + ":" + " ".repeat(n3) + "CANDYBAR" + "\n" +
                 " ".repeat(n2) + "Cliente" + " ".repeat(6) + ":" + " ".repeat(n3) + cliente.getName() + "\n" +
                 //System.out.println(" ".repeat(n2) + "Pago"+" ".repeat(9)+":"+" ".repeat(n3) + cliente.getFormaDePago+"\n");
                 " ".repeat(2) + "Detalle" + " ".repeat(15) + "Cant." + " ".repeat(6) + "Subtotal" + "\n" + " " + "-".repeat(43) + "\n" +

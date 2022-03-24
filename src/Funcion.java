@@ -3,40 +3,35 @@ import java.util.ArrayList;
 
 public class Funcion {
 
-    Pelicula peliculas;
-    String tipoPelicula;
-    int precio2D;
-    int precio3D;
+    Pelicula pelicula;
+    TipoFuncion tipoPelicula;
+    int precio2D = 40;
+    int precio3D = 60;
     ArrayList<LocalTime> horarios = new ArrayList<>();
     ArrayList<Sala> salas = new ArrayList<>();
+    ArrayList<TipoFuncion> tipoFuncions = new ArrayList<>();
 
-    public Funcion(Pelicula peliculas, /*String hora, String dia, Sala sala,*/ String tipoPelicula, int precio2D, int precio3D)
+    public Funcion(Pelicula pelicula)
     {
-        this.peliculas = peliculas;
-        //this.hora = hora;
-        //this.dia = dia;
-        //this.sala = sala;
-        this.tipoPelicula = tipoPelicula;
-        this.precio2D = precio2D;
-        this.precio3D = precio3D;
+        this.pelicula = pelicula;
     }
 
-    public void addHorario(LocalTime hora, Sala sala) {
+    public void addHorario(LocalTime hora, Sala sala, TipoFuncion tipoFuncion) {
         horarios.add(hora);
         salas.add(sala);
+        tipoFuncions.add(tipoFuncion);
     }
 
     public String mostrarFuncion() {
         String funcionString = "";
-        funcionString += "Pelicula: " + peliculas.nombrePelicula + "\n" +
-                "\t\tGenero: " + peliculas.genero + "\n"  +
-                "\t\tDuracion: " + peliculas.duracion + "\n"  +
-                "\t\tTipo Pelicula: " + tipoPelicula + "\n" +
+        funcionString += "Pelicula: " + pelicula.nombrePelicula + "\n" +
+                "\t\tGenero: " + pelicula.genero + "\n"  +
+                "\t\tDuracion: " + pelicula.duracion + "\n"  +
                 "\t\tHorario: \n";
 
         for (LocalTime hora: horarios
         ) {
-            funcionString += "\t\t\t" + hora + "\n";
+            funcionString += "\t\t\t" + hora + " - " + tipoFuncions.get(horarios.indexOf(hora)) + "\n";
         }
         return funcionString;
     }
