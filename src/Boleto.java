@@ -15,6 +15,8 @@ public class Boleto {
         this.formatoPelicula = formatoPelicula;
     }
 
+
+
     public void generarBoleto(){
         int n1 = 39;
         int n2 = 5;
