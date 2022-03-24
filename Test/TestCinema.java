@@ -45,6 +45,7 @@ public class TestCinema {
     @Test
     public void testCine(){
         Cine c = new Cine("Astor");
+        salas_por_defecto(c);
         out.println(c.infoCine());
         c.setFechaYHoraActual();
         out.println(c.getFechaActual());
@@ -114,6 +115,12 @@ public class TestCinema {
 
         sala1.filas.get(0).butacas.get(0).setDisponible(false);
         out.println(sala1.mostrarAsientos());
+    }
+
+    public void salas_por_defecto(Cine c){
+        c.generarsalas(3,10,10);
+        c.generarsalas(2,8,10);
+        c.generarsalas(2,5,10);
     }
 
 }

@@ -18,9 +18,6 @@ public class Cine {
         this.nombre = nombre;
         this.salas = new ArrayList<>();
         this.boleteria = null;
-        generarsalas(3,10,10);
-        generarsalas(2,8,10);
-        generarsalas(2,5,10);
     }
 
     public Cine(String nombre, Boleteria boleteria) {
